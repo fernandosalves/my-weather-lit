@@ -1,33 +1,16 @@
-import { html, css, LitElement } from 'lit';
+import { html, LitElement } from 'lit';
+
+import './components/weather-details.js';
+import './components/weather-temperature.js';
+import './components/weather-location.js';
 
 export class MyWeather extends LitElement {
-  static styles = css`
-    :host {
-      display: block;
-      padding: 25px;
-      color: var(--my-weather-text-color, #000);
-    }
-  `;
-
-  static properties = {
-    header: { type: String },
-    counter: { type: Number },
-  };
-
-  constructor() {
-    super();
-    this.header = 'Hey there';
-    this.counter = 5;
-  }
-
-  __increment() {
-    this.counter += 1;
-  }
 
   render() {
     return html`
-      <h2>${this.header} Nr. ${this.counter}!</h2>
-      <button @click=${this.__increment}>increment</button>
+      <weather-temperature></weather-temperature>
+      <weather-location></weather-location>
+      <weather-details></weather-details>
     `;
   }
 }
